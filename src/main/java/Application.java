@@ -34,7 +34,7 @@ public class Application {
         List<ActivePromotion> promotions = new ArrayList<>();
         promotions.add(new ActivePromotion(3, Arrays.asList(a), 130));
         promotions.add(new ActivePromotion(2, Arrays.asList(b), 45));
-        promotions.add(new ActivePromotion(1, Arrays.asList(c, d), 130));
+        promotions.add(new ActivePromotion(1, Arrays.asList(c, d), 30));
 
         PromotionEngine engine = new PromotionEngine();
         System.out.println(cartItems);

@@ -1,0 +1,5 @@
+models\CartItem.class
+promotion\engine\PromotionEngine.class
+models\ActivePromotion.class
+Application.class
+models\Product.class

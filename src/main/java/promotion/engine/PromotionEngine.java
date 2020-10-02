@@ -57,14 +57,18 @@ public class PromotionEngine {
             }
         }
         int minCommonQuantity = subItems.stream()
-                                        .map(data -> data.getQuantity())
-                                        .collect(Collectors.toList()).stream().mapToInt(a -> a).min().getAsInt();
-        System.out.println(minCommonQuantity);
+                .map(data -> data.getQuantity())
+                .collect(Collectors.toList())
+                .stream().mapToInt(a -> a).min().getAsInt();
+        int promotionItemPrice = minCommonQuantity * promotion.getPrice();
+        int nonPromotionItemPrice = 0;
         for (CartItem item : subItems) {
-
+            int restItems = item.getQuantity() - minCommonQuantity;
+            if (restItems > 0) {
+                nonPromotionItemPrice += restItems * item.getProduct().getPrice();
+            }
         }
-
-        return 1;
+        return promotionItemPrice + nonPromotionItemPrice;
     }
 
     private int calculateOffer(CartItem cartItem) {
